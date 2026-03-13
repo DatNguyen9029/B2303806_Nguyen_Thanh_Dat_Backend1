@@ -12,6 +12,11 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/contacts", contactRouter);
 
+app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to contact book application!' });
+});
+
+
 //handle 404 response
 app.use((req, res, next) => {
     //Code o day se chay khi khong co route duoc dinh nghia nao 
@@ -28,8 +33,5 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to contact book application!' });
-});
 
 module.exports = app;
